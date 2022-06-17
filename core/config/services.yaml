@@ -12,6 +12,7 @@ parameters:
     env(MYSQL_HOST): 'db'
     env(MYSQL_PORT): '3306'
     env(MYSQL_DATABASE): null
+    env(MYSQL_SOCKET): null
     env(MYSQL_USER): null
     env(MYSQL_PASSWORD): null
     env(MAILER_TRANSPORT): smtp
@@ -54,6 +55,7 @@ parameters:
     database_host: '%env(MYSQL_HOST)%'
     database_port: '%env(int:MYSQL_PORT)%'
     database_name: '%env(MYSQL_DATABASE)%'
+    database_socket: '%env(MYSQL_SOCKET)%'
     database_user: '%env(MYSQL_USER)%'
     database_password: '%env(MYSQL_PASSWORD)%'
     mailer_transport: '%env(MAILER_TRANSPORT)%'
@@ -214,7 +216,7 @@ services:
     session.handler.pdo:
         class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
         arguments:
-            $pdoOrDsn: 'mysql:host=%database_host%;port=%database_port%;dbname=%database_name%'
+            $pdoOrDsn: 'mysql:dbname=%database_name%;unix_socket=%database_socket%'
             $options: { db_username: '%database_user%', db_password: '%database_password%', db_table: 'auth_session', db_id_col: 'id', db_connection_options: "%pdo_options%" }
 
     salt.cache.external_docs:
