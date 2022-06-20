@@ -13,7 +13,7 @@ class Version20160823233434 extends AbstractMigration
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE ls_item ADD rank BIGINT DEFAULT NULL AFTER list_enum_in_source');
+        $this->addSql('ALTER TABLE ls_item ADD `rank` BIGINT DEFAULT NULL AFTER list_enum_in_source');
     }
 
 
@@ -21,6 +21,6 @@ class Version20160823233434 extends AbstractMigration
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE ls_item DROP rank');
+        $this->addSql('ALTER TABLE ls_item DROP `rank`');
     }
 }
