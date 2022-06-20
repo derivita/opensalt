@@ -9,8 +9,6 @@ imports:
 
 parameters:
     # Defaults for environment variables
-    env(MYSQL_HOST): 'db'
-    env(MYSQL_PORT): '3306'
     env(MYSQL_DATABASE): null
     env(MYSQL_SOCKET): null
     env(MYSQL_USER): null
@@ -52,8 +50,6 @@ parameters:
     env(CASE_NETWORK_SCOPE): 'http://purl.imsglobal.org/casenetwork/case/v1p0/scope/all.readonly'
 
     locale: en
-    database_host: '%env(MYSQL_HOST)%'
-    database_port: '%env(int:MYSQL_PORT)%'
     database_name: '%env(MYSQL_DATABASE)%'
     database_socket: '%env(MYSQL_SOCKET)%'
     database_user: '%env(MYSQL_USER)%'
