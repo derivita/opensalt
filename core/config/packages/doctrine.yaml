@@ -12,8 +12,7 @@ doctrine:
             default:
                 driver:   'pdo_mysql'
                 #url: '%env(resolve:DATABASE_URL)%'
-                host:     '%database_host%'
-                port:     '%database_port%'
+                unix_socket: '%database_socket%'
                 dbname:   '%database_name%'
                 user:     '%database_user%'
                 password: '%database_password%'
